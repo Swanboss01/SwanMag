@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwanMag</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LcNabsqAAAAAEMmNiBpfc_3L-xztF8N7EELoABt"></script>
-    <script>
-        function onSubmit(token) {
-            document.getElementById("contact-form").submit();
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -102,10 +96,7 @@
                     <label for="message">Message :</label>
                     <textarea id="message" name="message" placeholder="Message ici" required></textarea>
                 </div>
-                <button class="g-recaptcha" 
-                    data-sitekey="6LcNabsqAAAAAEMmNiBpfc_3L-xztF8N7EELoABt" 
-                    data-callback='onSubmit' 
-                    data-action='submit'>Envoyer</button>
+                <button type="submit">Envoyer</button>
             </form>
         </section>
     </main>
