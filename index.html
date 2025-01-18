@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwanMag</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header>
@@ -38,8 +39,7 @@
         <section id="androswan">
             <h2>AndroSwan</h2>
             <p>Découvrez AndroSwan, notre système d'exploitation Android exclusif. Téléchargez la dernière version et explorez ses fonctionnalités uniques.</p>
-            <a href="https://swanmag.netlify.app
-/androswan.zip" download>Télécharger AndroSwan</a>
+            <a href="https://swanmag.netlify.app/androswan.zip" download>Télécharger AndroSwan</a>
         </section>
         <section id="produits">
             <h2>Mes Produits</h2>
@@ -66,7 +66,7 @@
                 <p>Description brève de la nouveauté.</p>
             </div>
             <div class="new-item">
-                <img src="httpswanmag.netlify.app/images/image4.jpg" alt="Image Nouveau Produit 2">
+                <img src="https://swanmag.netlify.app/images/image4.jpg" alt="Image Nouveau Produit 2">
                 <h3>Titre du Nouveau Produit 2</h3>
                 <p>Description brève de la nouveauté 2.</p>
             </div>
@@ -97,6 +97,7 @@
                     <label for="message">Message :</label>
                     <textarea id="message" name="message" placeholder="Message ici" required></textarea>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LcNabsqAAAAAEMmNiBpfc_3L-xztF8N7EELoABt"></div>
                 <button type="submit">Envoyer</button>
             </form>
         </section>
