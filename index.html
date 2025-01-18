@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwanMag</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcNabsqAAAAAEMmNiBpfc_3L-xztF8N7EELoABt"></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("contact-form").submit();
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -84,7 +89,7 @@
         </section>
         <section id="contact-assistance">
             <h2>Contact et Assistance</h2>
-            <form action="https://formspree.io/f/mvggvwnw" method="POST">
+            <form id="contact-form" action="https://formspree.io/f/mvggvwnw" method="POST">
                 <div>
                     <label for="nom">Nom :</label>
                     <input type="text" id="nom" name="nom" placeholder="Nom ici" required>
@@ -97,8 +102,10 @@
                     <label for="message">Message :</label>
                     <textarea id="message" name="message" placeholder="Message ici" required></textarea>
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LcNabsqAAAAAEMmNiBpfc_3L-xztF8N7EELoABt"></div>
-                <button type="submit">Envoyer</button>
+                <button class="g-recaptcha" 
+                    data-sitekey="6LcNabsqAAAAAEMmNiBpfc_3L-xztF8N7EELoABt" 
+                    data-callback='onSubmit' 
+                    data-action='submit'>Envoyer</button>
             </form>
         </section>
     </main>
