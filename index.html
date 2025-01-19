@@ -3,37 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwanMag - Inscription</title>
+    <title>SwanMag - Inscription et Connexion</title>
     <link rel="stylesheet" href="styles.css">
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyDrNLXHO5Pl4ZsqUEhT2oTOja91sOXepZ0",
-            authDomain: "sample-firebase-ai-app-c20f9.firebaseapp.com",
-            projectId: "sample-firebase-ai-app-c20f9",
-            storageBucket: "sample-firebase-ai-app-c20f9.firebasestorage.app",
-            messagingSenderId: "469732737973",
-            appId: "1:469732737973:web:9f7f848c415302b02f0ffc"
+            apiKey: "AIzaSyCkLLmrWQxy_8nMi9bvV5uLKpiGw01f9s4",
+            authDomain: "swanmag-20315.firebaseapp.com",
+            projectId: "swanmag-20315",
+            storageBucket: "swanmag-20315.firebasestorage.app",
+            messagingSenderId: "709396154196",
+            appId: "1:709396154196:web:8e0784eb2360edcc9caac1",
+            measurementId: "G-0SE4VT90SH"
         };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
         const auth = getAuth(app);
 
         // Inscription avec Firebase Authentication
         document.getElementById('signup-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     // Inscription réussie
                     const user = userCredential.user;
                     alert('Inscription réussie !');
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert('Erreur : ' + errorMessage);
+                });
+        });
+
+        // Connexion avec Firebase Authentication
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Connexion réussie
+                    const user = userCredential.user;
+                    alert('Connexion réussie !');
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -53,6 +74,7 @@
                 <li><a href="#produits">Mes Produits</a></li>
                 <li><a href="#contact-assistance">Contact</a></li>
                 <li><a href="#inscription">Créer un Compte</a></li>
+                <li><a href="#connexion">Se Connecter</a></li>
             </ul>
         </nav>
     </header>
@@ -141,23 +163,27 @@
             <h2>Créer un Compte</h2>
             <form id="signup-form">
                 <div>
-                    <label for="username">Nom d'utilisateur :</label>
-                    <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
+                    <label for="signup-email">Email :</label>
+                    <input type="email" id="signup-email" name="signup-email" placeholder="Email" required>
                 </div>
                 <div>
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" placeholder="Email" required>
-                </div>
-                <div>
-                    <label for="password">Mot de passe :</label>
-                    <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                    <label for="signup-password">Mot de passe :</label>
+                    <input type="password" id="signup-password" name="signup-password" placeholder="Mot de passe" required>
                 </div>
                 <button type="submit">S'inscrire</button>
             </form>
         </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 SwanMag. Tous droits réservés.</p>
-    </footer>
-</body>
-</html>
+        <section id="connexion">
+            <h2>Se Connecter</h2>
+            <form id="login-form">
+                <div>
+                    <label for="login-email">Email :</label>
+                    <input type="email" id="login-email" name="login-email" placeholder="Email" required>
+                </div>
+                <div>
+                    <label for="login-password">Mot de passe :</label>
+                    <input type="password" id="login-password" name="login-password" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit">Se Connecter</button>
+            </form>
+[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
