@@ -3,124 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwanMag</title>
+    <title>SwanMag - Inscription</title>
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>SwanMag</h1>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#telecharger">Télécharger</a></li>
-                <li><a href="#produits">Mes Produits</a></li>
-                <li><a href="#contact-assistance">Contact</a></li>
-                <li><a href="#inscription">Créer un Compte</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="accueil">
-            <h2>Bienvenue sur SwanMag</h2>
-            <p>Découvrez les dernières nouvelles et produits de SwanMag.</p>
-        </section>
-        <section id="telecharger">
-            <h2>Télécharger</h2>
-            <ul>
-                <li><a href="#swanos">SwanOS</a></li>
-                <li><a href="#androswan">AndroSwan</a></li>
-            </ul>
-        </section>
-        <section id="swanos">
-            <h2>SwanOS</h2>
-            <p>Découvrez SwanOS, notre système d'exploitation innovant. Téléchargez la dernière version et explorez ses fonctionnalités uniques.</p>
-            <a href="https://swanmag.netlify.app/swanos.zip" download>Télécharger SwanOS</a>
-        </section>
-        <section id="androswan">
-            <h2>AndroSwan</h2>
-            <p>Découvrez AndroSwan, notre système d'exploitation Android exclusif. Téléchargez la dernière version et explorez ses fonctionnalités uniques.</p>
-            <a href="https://swanmag.netlify.app/androswan.zip" download>Télécharger AndroSwan</a>
-        </section>
-        <section id="produits">
-            <h2>Mes Produits</h2>
-            <!-- Contenu des produits -->
-        </section>
-        <section id="a-la-une">
-            <h2>À la Une</h2>
-            <div class="featured-item">
-                <img src="https://swanmag.netlify.app/images/image.jpg" alt="Image Produit">
-                <h3>Titre du Produit</h3>
-                <p>Description brève du produit ou de l'article.</p>
-            </div>
-            <div class="featured-item">
-                <img src="https://swanmag.netlify.app/images/image2.jpg" alt="Image Produit 2">
-                <h3>Titre du Produit 2</h3>
-                <p>Description brève du produit ou de l'article 2.</p>
-            </div>
-        </section>
-        <section id="nouveautes">
-            <h2>Nouveautés</h2>
-            <div class="new-item">
-                <img src="https://swanmag.netlify.app/images/image3.jpg" alt="Image Nouveau Produit">
-                <h3>Titre du Nouveau Produit</h3>
-                <p>Description brève de la nouveauté.</p>
-            </div>
-            <div class="new-item">
-                <img src="https://swanmag.netlify.app/images/image4.jpg" alt="Image Nouveau Produit 2">
-                <h3>Titre du Nouveau Produit 2</h3>
-                <p>Description brève de la nouveauté 2.</p>
-            </div>
-        </section>
-        <section id="temoignages">
-            <h2>Témoignages</h2>
-            <blockquote>
-                <p>"SwanMag est incroyable ! J'adore leurs produits."</p>
-                <footer>- Nom du Client</footer>
-            </blockquote>
-            <blockquote>
-                <p>"Service fantastique et produits de haute qualité."</p>
-                <footer>- Nom du Client 2</footer>
-            </blockquote>
-        </section>
-        <section id="contact-assistance">
-            <h2>Contact et Assistance</h2>
-            <form id="contact-form" action="https://formspree.io/f/mbllvpyq" method="POST">
-                <div>
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" placeholder="Nom ici" required>
-                </div>
-                <div>
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" placeholder="Email ici" required>
-                </div>
-                <div>
-                    <label for="message">Message :</label>
-                    <textarea id="message" name="message" placeholder="Message ici" required></textarea>
-                </div>
-                <button type="submit">Envoyer</button>
-            </form>
-        </section>
-        <section id="inscription">
-            <h2>Créer un Compte</h2>
-            <form action="register.php" method="POST">
-                <div>
-                    <label for="username">Nom d'utilisateur :</label>
-                    <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
-                </div>
-                <div>
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" placeholder="Email" required>
-                </div>
-                <div>
-                    <label for="password">Mot de passe :</label>
-                    <input type="password" id="password" name="password" placeholder="Mot de passe" required>
-                </div>
-                <button type="submit">S'inscrire</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 SwanMag. Tous droits réservés.</p>
-    </footer>
-</body>
-</html>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDrNLXHO5Pl4ZsqUEhT2oTOja91sOXepZ0",
+            authDomain: "sample-firebase-ai-app-c20f9.firebaseapp.com",
+            projectId: "sample-firebase-ai-app-c20f9",
