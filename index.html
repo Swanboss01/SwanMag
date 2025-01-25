@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwanMag - Inscription et Connexion</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="module">
-        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCkLLmrWQxy_8nMi9bvV5uLKpiGw01f9s4",
             authDomain: "swanmag-20315.firebaseapp.com",
@@ -22,19 +24,16 @@
             measurementId: "G-0SE4VT90SH"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
 
-        // Inscription avec Firebase Authentication
         document.getElementById('signup-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const email = document.getElementById('signup-email').value;
             const password = document.getElementById('signup-password').value;
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
-                    // Inscription réussie
                     const user = userCredential.user;
                     alert('Inscription réussie !');
                 })
@@ -45,14 +44,12 @@
                 });
         });
 
-        // Connexion avec Firebase Authentication
         document.getElementById('login-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
-                    // Connexion réussie
                     const user = userCredential.user;
                     alert('Connexion réussie !');
                 })
@@ -156,6 +153,7 @@
                     <label for="message">Message :</label>
                     <textarea id="message" name="message" placeholder="Message ici" required></textarea>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LeJ4sIqAAAAAOrNJRU6xmtoJKINIB-psG44LTNk"></div>
                 <button type="submit">Envoyer</button>
             </form>
         </section>
@@ -178,12 +176,4 @@
             <form id="login-form">
                 <div>
                     <label for="login-email">Email :</label>
-                    <input type="email" id="login-email" name="login-email" placeholder="Email" required>
-                </div>
-                <div>
-                    <label for="login-password">Mot de passe :</label>
-                    <input type="password" id="login-password" name="login-password" placeholder="Mot de passe" required>
-                </div>
-                <button type="submit">Se Connecter</button>
-            </form>
-[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+                    <input type="email" id="login-email" name="login-email" placeholder="Email" required[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
