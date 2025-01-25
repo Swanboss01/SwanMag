@@ -3,63 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwanMag - Inscription et Connexion</title>
+    <title>SwanMag - Contact</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyCkLLmrWQxy_8nMi9bvV5uLKpiGw01f9s4",
-            authDomain: "swanmag-20315.firebaseapp.com",
-            projectId: "swanmag-20315",
-            storageBucket: "swanmag-20315.firebasestorage.app",
-            messagingSenderId: "709396154196",
-            appId: "1:709396154196:web:8e0784eb2360edcc9caac1",
-            measurementId: "G-0SE4VT90SH"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const auth = getAuth(app);
-
-        document.getElementById('signup-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const email = document.getElementById('signup-email').value;
-            const password = document.getElementById('signup-password').value;
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    alert('Inscription réussie !');
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert('Erreur : ' + errorMessage);
-                });
-        });
-
-        document.getElementById('login-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    alert('Connexion réussie !');
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert('Erreur : ' + errorMessage);
-                });
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -69,7 +15,7 @@
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#telecharger">Télécharger</a></li>
                 <li><a href="#produits">Mes Produits</a></li>
-                <li><a href="#contact-assistance">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="#inscription">Créer un Compte</a></li>
                 <li><a href="#connexion">Se Connecter</a></li>
             </ul>
@@ -138,8 +84,8 @@
                 <footer>- Nom du Client 2</footer>
             </blockquote>
         </section>
-        <section id="contact-assistance">
-            <h2>Contact et Assistance</h2>
+        <section id="contact">
+            <h2>Contactez-nous</h2>
             <form id="contact-form" action="https://formspree.io/f/mbllvpyq" method="POST">
                 <div>
                     <label for="nom">Nom :</label>
@@ -176,4 +122,18 @@
             <form id="login-form">
                 <div>
                     <label for="login-email">Email :</label>
-                    <input type="email" id="login-email" name="login-email" placeholder="Email" required[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/js202005082300/Aide-m-moires/tree/c85c562d508c68fa086972462338ed773a25c8ac/JavaScript%2Fcours%2F002_hello_world%2Fnote.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+                    <input type="email" id="login-email" name="login-email" placeholder="Email" required>
+                </div>
+                <div>
+                    <label for="login-password">Mot de passe :</label>
+                    <input type="password" id="login-password" name="login-password" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit">Se Connecter</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 SwanMag. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
