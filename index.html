@@ -3,47 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwanMag - Inscription et Connexion</title>
+    <title>SwanMag</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyCkLLmrWQxy_8nMi9bvV5uLKpiGw01f9s4",
-            authDomain: "swanmag-20315.firebaseapp.com",
-            projectId: "swanmag-20315",
-            storageBucket: "swanmag-20315.firebasestorage.app",
-            messagingSenderId: "709396154196",
-            appId: "1:709396154196:web:8e0784eb2360edcc9caac1",
-            measurementId: "G-0SE4VT90SH"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const auth = getAuth(app);
-
-        document.getElementById('signup-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const email = document.getElementById('signup-email').value;
-            const password = document.getElementById('signup-password').value;
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    alert('Inscription réussie !');
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert('Erreur : ' + errorMessage);
-                });
-        });
-
+    import { initializeApp } from 'firebase/app';
+const firebaseConfig = {
+  apiKey: "AIzaSyC1fwojgdWY9uGdE1kkuIPHN3-DwBOR16A",
+  authDomain: "swanmag-bedeb.firebaseapp.com",
+  projectId: "swanmag-bedeb",
+  storageBucket: "swanmag-bedeb.appspot.com",
+  messagingSenderId: "641520196648",
+  appId: "1:641520196648:web:442e1b15f26186d47ee39d",
+  measurementId: "G-6LPHGHK7BC"
+};
+const app = initializeApp(firebaseConfig);
         document.getElementById('login-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const email = document.getElementById('login-email').value;
