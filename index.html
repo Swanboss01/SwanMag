@@ -5,32 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwanMag</title>
     <link rel="stylesheet" href="styles.css">
-    import { initializeApp } from 'firebase/app';
-const firebaseConfig = {
-  apiKey: "AIzaSyC1fwojgdWY9uGdE1kkuIPHN3-DwBOR16A",
-  authDomain: "swanmag-bedeb.firebaseapp.com",
-  projectId: "swanmag-bedeb",
-  storageBucket: "swanmag-bedeb.appspot.com",
-  messagingSenderId: "641520196648",
-  appId: "1:641520196648:web:442e1b15f26186d47ee39d",
-  measurementId: "G-6LPHGHK7BC"
+    import { getFirestore, collection, addDoc } from "firebase/firestore";
+
+const db = getFirestore();
+const enregistrerUtilisateur = async (userId, email) => {
+  try {
+    await addDoc(collection(db, "utilisateurs"), {
+      id: userId,
+      email: email,
+      dateInscription: new Date(),
+    });
+    console.log("Utilisateur enregistré !");
+  } catch (error) {
+    console.error("Erreur :", error);
+  }
 };
-const app = initializeApp(firebaseConfig);
-        document.getElementById('login-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    alert('Connexion réussie !');
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert('Erreur : ' + errorMessage);
-                });
-        });
+
+// Appelle cette fonction après l'inscription réussie
+enregistrerUtilisateur("123456", "exemple@swanmag.com");
     </script>
 </head>
 <body>
