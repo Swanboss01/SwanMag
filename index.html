@@ -6,9 +6,15 @@
     <title>SwanMag</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.auth0.com/js/auth0-spa-js/1.19/auth0-spa-js.production.js"></script>
-    </script>
 </head>
 <body>
+    <!-- 🔹 Barre supérieure avec bouton connexion -->
+    <div class="top-bar">
+        <button id="connexion">Se Connecter</button>
+        <button id="deconnexion" style="display: none;">Se Déconnecter</button>
+        <p id="user-info"></p>
+    </div>
+
     <header>
         <h1>SwanMag</h1>
         <nav>
@@ -18,15 +24,16 @@
                 <li><a href="#produits">Mes Produits</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#inscription">Créer un Compte</a></li>
-                <li><a href="#connexion">Se Connecter</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
         <section id="accueil">
             <h2>Bienvenue sur SwanMag</h2>
             <p>Découvrez les dernières nouvelles et produits de SwanMag.</p>
         </section>
+
         <section id="telecharger">
             <h2>Télécharger</h2>
             <ul>
@@ -34,93 +41,40 @@
                 <li><a href="#androswan">AndroSwan</a></li>
             </ul>
         </section>
+
         <section id="swanos">
             <h2>SwanOS</h2>
-            <p>Découvrez SwanOS, notre système d'exploitation innovant. Téléchargez la dernière version et explorez ses fonctionnalités uniques.</p>
+            <p>Découvrez SwanOS, notre système d'exploitation innovant.</p>
             <a href="https://swanmag.netlify.app/swanos.zip" download>Télécharger SwanOS</a>
         </section>
+
         <section id="androswan">
             <h2>AndroSwan</h2>
-            <p>Découvrez AndroSwan, notre système d'exploitation Android exclusif. Téléchargez la dernière version et explorez ses fonctionnalités uniques.</p>
+            <p>Découvrez AndroSwan, notre système d'exploitation Android exclusif.</p>
             <a href="https://swanmag.netlify.app/androswan.zip" download>Télécharger AndroSwan</a>
         </section>
+
         <section id="produits">
             <h2>Mes Produits</h2>
-            <!-- Contenu des produits -->
         </section>
-        <section id="a-la-une">
-            <h2>À la Une</h2>
-            <div class="featured-item">
-                <img src="https://swanmag.netlify.app/images/image.jpg" alt="Image Produit">
-                <h3>Titre du Produit</h3>
-                <p>Description brève du produit ou de l'article.</p>
-            </div>
-            <div class="featured-item">
-                <img src="https://swanmag.netlify.app/images/image2.jpg" alt="Image Produit 2">
-                <h3>Titre du Produit 2</h3>
-                <p>Description brève du produit ou de l'article 2.</p>
-            </div>
-        </section>
-        <section id="nouveautes">
-            <h2>Nouveautés</h2>
-            <div class="new-item">
-                <img src="https://swanmag.netlify.app/images/image3.jpg" alt="Image Nouveau Produit">
-                <h3>Titre du Nouveau Produit</h3>
-                <p>Description brève de la nouveauté.</p>
-            </div>
-            <div class="new-item">
-                <img src="https://swanmag.netlify.app/images/image4.jpg" alt="Image Nouveau Produit 2">
-                <h3>Titre du Nouveau Produit 2</h3>
-                <p>Description brève de la nouveauté 2.</p>
-            </div>
-        </section>
-        <section id="temoignages">
-            <h2>Témoignages</h2>
-            <blockquote>
-                <p>"SwanMag est incroyable ! J'adore leurs produits."</p>
-                <footer>- Nom du Client</footer>
-            </blockquote>
-            <blockquote>
-                <p>"Service fantastique et produits de haute qualité."</p>
-                <footer>- Nom du Client 2</footer>
-            </blockquote>
-        </section>
+
         <section id="contact">
             <h2>Contactez-nous</h2>
             <form id="contact-form" action="https://formspree.io/f/mbllvpyq" method="POST">
-                <div>
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" placeholder="Nom ici" required>
-                </div>
-                <div>
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" placeholder="Email ici" required>
-                </div>
-                <div>
-                    <label for="message">Message :</label>
-                    <textarea id="message" name="message" placeholder="Message ici" required></textarea>
-                </div>
-                <div class="g-recaptcha" data-sitekey="6LeI7sMqAAAAAM_UqPb3XL6U5VBb1QpUPoxWdz50"></div>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" placeholder="Nom ici" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="Email ici" required>
+
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" placeholder="Message ici" required></textarea>
+
                 <button type="submit">Envoyer</button>
             </form>
         </section>
-        <section id="inscription">
-            <h2>Créer un Compte</h2>
-            <form id="signup-form">
-                <div>
-                    <label for="signup-email">Email :</label>
-                    <input type="email" id="signup-email" name="signup-email" placeholder="Email" required>
-                </div>
-                <div>
-                    <label for="signup-password">Mot de passe :</label>
-                    <input type="password" id="signup-password" name="signup-password" placeholder="Mot de passe" required>
-                </div>
-                <button type="submit">S'inscrire</button>
-            </form>
-        </section>
-        <section id="connexion">
-            <h2>Se Connecter</h2>
-            <form id="login-form">
-                <div>
-                    <label for="login-email">Email :</label>
-                    <input type="email" id="[_{{{CITAT
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
