@@ -1,80 +1,103 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwanMag</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.19/auth0-spa-js.production.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwanMag</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Auth0 -->
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.19/auth0-spa-js.production.js"></script>
+
+  <!-- reCAPTCHA Enterprise -->
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=VOTRE_CLÉ_SITE"></script>
 </head>
 <body>
-    <!-- 🔹 Barre supérieure avec bouton connexion -->
-    <div class="top-bar">
-        <button id="connexion">Se Connecter</button>
-        <button id="deconnexion" style="display: none;">Se Déconnecter</button>
-        <p id="user-info"></p>
-    </div>
+  <!-- 🔹 Barre supérieure avec bouton connexion -->
+  <div class="top-bar">
+    <button id="connexion">Se Connecter</button>
+    <button id="deconnexion" style="display: none;">Se Déconnecter</button>
+    <p id="user-info"></p>
+  </div>
 
-    <header>
-        <h1>SwanMag</h1>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#telecharger">Télécharger</a></li>
-                <li><a href="#produits">Mes Produits</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#inscription">Créer un Compte</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>SwanMag</h1>
+    <nav>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#telecharger">Télécharger</a></li>
+        <li><a href="#produits">Mes Produits</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#inscription">Créer un Compte</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section id="accueil">
-            <h2>Bienvenue sur SwanMag</h2>
-            <p>Découvrez les dernières nouvelles et produits de SwanMag.</p>
-        </section>
+  <main>
+    <section id="accueil">
+      <h2>Bienvenue sur SwanMag</h2>
+      <p>Découvrez les dernières nouvelles et produits de SwanMag.</p>
+    </section>
 
-        <section id="telecharger">
-            <h2>Télécharger</h2>
-            <ul>
-                <li><a href="#swanos">SwanOS</a></li>
-                <li><a href="#androswan">AndroSwan</a></li>
-            </ul>
-        </section>
+    <section id="telecharger">
+      <h2>Télécharger</h2>
+      <ul>
+        <li><a href="#swanos">SwanOS</a></li>
+        <li><a href="#androswan">AndroSwan</a></li>
+      </ul>
+    </section>
 
-        <section id="swanos">
-            <h2>SwanOS</h2>
-            <p>Découvrez SwanOS, notre système d'exploitation innovant.</p>
-            <a href="https://swanmag.netlify.app/swanos.zip" download>Télécharger SwanOS</a>
-        </section>
+    <section id="swanos">
+      <h2>SwanOS</h2>
+      <p>Découvrez SwanOS, notre système d'exploitation innovant.</p>
+      <a href="https://swanmag.netlify.app/swanos.zip" download>Télécharger SwanOS</a>
+    </section>
 
-        <section id="androswan">
-            <h2>AndroSwan</h2>
-            <p>Découvrez AndroSwan, notre système d'exploitation Android exclusif.</p>
-            <a href="https://swanmag.netlify.app/androswan.zip" download>Télécharger AndroSwan</a>
-        </section>
+    <section id="androswan">
+      <h2>AndroSwan</h2>
+      <p>Découvrez AndroSwan, notre système d'exploitation Android exclusif.</p>
+      <a href="https://swanmag.netlify.app/androswan.zip" download>Télécharger AndroSwan</a>
+    </section>
 
-        <section id="produits">
-            <h2>Mes Produits</h2>
-        </section>
+    <section id="produits">
+      <h2>Mes Produits</h2>
+    </section>
 
-        <section id="contact">
-            <h2>Contactez-nous</h2>
-            <form id="contact-form" action="https://formspree.io/f/mbllvpyq" method="POST">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" placeholder="Nom ici" required>
+    <section id="contact">
+      <h2>Contactez-nous</h2>
+      <form id="contact-form" action="https://formspree.io/f/mbllvpyq" method="POST">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" placeholder="Nom ici" required>
 
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" placeholder="Email ici" required>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="Email ici" required>
 
-                <label for="message">Message :</label>
-                <textarea id="message" name="message" placeholder="Message ici" required></textarea>
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" placeholder="Message ici" required></textarea>
 
-                <button type="submit">Envoyer</button>
-            </form>
-        </section>
-    </main>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
 
-    <script src="scripts.js"></script>
+  <!-- Script principal -->
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      grecaptcha.enterprise.ready(function() {
+        grecaptcha.enterprise.execute('6LfYF7krAAAAAOoxmz8U6NkMUN6wmxXB4Qsz18V8', {action: 'contact'}).then(function(token) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'g-recaptcha-response';
+          input.value = token;
+          e.target.appendChild(input);
+          e.target.submit();
+        });
+      });
+    });
+  </script>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
